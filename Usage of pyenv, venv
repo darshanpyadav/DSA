@@ -1,0 +1,6 @@
+1. I’d recommend using “pyenv + venv” to manage different Python versions and to create isolation for different projects.
+2. Once venv and pyenv is setup,
+    a. Install a particular Python version -> “pyenv install -v 3.7.3” 
+    b. Run this command inside the project directory to use it locally ->  “pyenv local 3.7.3”
+    c. Run “python -m venv .” inside project directory to create a virtual environment.
+    d. Create a .gitignore file to ignore the source/ log and installation files.
