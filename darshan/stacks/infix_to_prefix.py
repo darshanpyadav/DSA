@@ -7,7 +7,7 @@ def infix_to_prefix(exp):
     for i in range(len(exp)):
         if exp[i] == "(":
             exp[i] = ")"
-        elif exp[i] == ")":
+        if exp[i] == ")":
             exp[i] = "("
     return (infix_to_postfix("".join(exp)))[::-1]
 

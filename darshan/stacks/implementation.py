@@ -6,7 +6,7 @@ class StackList:
         self.items = []
 
     def isEmpty(self):
-        return False if self.items else True
+        return len(self.items) == 0
 
     def push(self, item):
         self.items.append(item)
