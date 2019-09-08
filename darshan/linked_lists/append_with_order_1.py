@@ -29,28 +29,13 @@ class LinkedList:
         else:
             self.head = cur.next
 
-    def remove(self, item):
-        prev = None
-        cur = self.head
-        if cur is None:
-            return None
-        while cur is not None and cur.value != item:
-            prev = cur
-            cur = cur.next
-        if prev is None:
-            self.head = cur.next
-        else:
-            if cur is not None:
-                prev.next = cur.next
-        return cur
-
     def __str__(self):
         cur = self.head
         res = ""
         if cur is None:
             res = "[]"
         else:
-            res  = "[ "
+            res = "[ "
             while cur.next is not None:
                 res += str(cur.value) + " -> "
                 cur = cur.next
