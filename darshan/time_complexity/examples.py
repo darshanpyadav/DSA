@@ -64,6 +64,12 @@ for (int i = N; i > 0; i /= 2) {
 Time: O(n)
 Inner loop runs N, N/2. N/4,...
 So N+N/2+.... = N
+
+N = 3, x = 4
+N = 4, x = 7
+N = 5, x = 9
+N = 6, x = 10
+O(2N-1) or O(2N-2) ~ O(N)
 -----------------------------------------------------------------------------------------------------------------------
 Which of the following is not bounded by O(n^2)?
 
@@ -81,7 +87,7 @@ for (i  = n/2; i <= n; i++) {
 
 Time: O(N*logN)
 
-Outer loop is N/2, inner is logN
+Outer loop is (N-N/2), inner is logN
 -----------------------------------------------------------------------------------------------------------------------
 int gcd(int n, int m) {
     if (n%m ==0) return m;
