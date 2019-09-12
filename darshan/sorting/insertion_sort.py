@@ -11,3 +11,6 @@ def insertion_sort(l):
 
 
 print(insertion_sort([5, 3, 2, 4, 1]))
+
+
+# Time complexity is O(N^2)
