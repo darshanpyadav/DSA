@@ -39,8 +39,7 @@ in which you can achieve it. You start from the first point.
 
 def min_steps(a, b):
     # just get the max of the absolute difference between current and next co-ordinates and sum it up
-    min_path = sum(max(abs(a[k]-a[k+1]), abs(b[k]-b[k+1])) for k in range(len(a) - 1))
-    print(min_path)
+    return sum(max(abs(a[k]-a[k+1]), abs(b[k]-b[k+1])) for k in range(len(a) - 1))
 
 
 if __name__ == "__main__":
