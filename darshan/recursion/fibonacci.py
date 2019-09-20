@@ -6,3 +6,7 @@ def fib(n):
 
 
 print(fib(10))
+
+
+# Worst O(2^n)
+# Best O(2^n/2)

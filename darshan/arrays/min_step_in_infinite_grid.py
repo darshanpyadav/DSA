@@ -46,3 +46,5 @@ if __name__ == "__main__":
     _, *a = map(int, input("a=").split())
     _, *b = map(int, input("b=").split())
     print(min_steps(a, b))
+
+# O(N)

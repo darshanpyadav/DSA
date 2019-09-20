@@ -14,3 +14,5 @@ def palindrome(s):
 
 
 print(palindrome("Reviled did I live, said I, as evil I did deliver"))
+
+# O(N)

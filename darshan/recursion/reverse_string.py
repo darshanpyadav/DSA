@@ -8,3 +8,5 @@ def reverse(s):
 
 
 print(reverse("hello"))
+
+# O(N)

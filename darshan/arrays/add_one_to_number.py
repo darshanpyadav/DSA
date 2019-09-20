@@ -33,3 +33,5 @@ def add_one_to_number(a):
 if __name__ == "__main__":
     _, *a = map(int, input("a=").split())
     print(add_one_to_number(a))
+
+# O(1)

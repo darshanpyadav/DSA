@@ -10,3 +10,5 @@ def move_disk(fp, tp):
 
 
 tower_of_hanoi(3, "A", "B", "C")
+
+# O(2^N)
