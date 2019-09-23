@@ -5,6 +5,8 @@
 # Version           : 1.0
 # Description       : Let-s-do-it
 # *****************************************************************************
+import timeit
+
 
 
 def matrix_product(p):
@@ -73,9 +75,16 @@ if __name__ == "__main__":
     # for i in range(n):
     #     p.append(int(input("Enter the rows of " + str(i+1) + "matrix")))
     # p.append(int(input("Enter the column of last matrix")))
-    n = 3
-    p = [10, 100, 5, 50]
-    m, s = matrix_product(p)
-    print('The number of scalar multiplications needed:', m[1][n])
-    print('Optimal parenthesization: ', end='')
-    print_expression(s, 1, n)
+    # n = 3
+    #     # p = [10, 100, 5, 50]
+    #     # m, s = matrix_product(p)
+    #     # print('The number of scalar multiplications needed:', m[1][n])
+    #     # print('Optimal parenthesization: ', end='')
+    #     # print_expression(s, 1, n)
+
+    print("**************MEMOIZATION*************")
+    print(timeit.repeat("matrix_product([10, 100, 5, 50])",
+                        "from darshan.DP.matrix_chain_multiplication_with_memoization import matrix_product", number=10000))
+    print("**************BOTTOM UP*************")
+    print(timeit.repeat("matrix_product([10, 100, 5, 50])",
+                        "from darshan.DP.matrix_chain_multiplication_bottom_up import matrix_product", number=10000))
