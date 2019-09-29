@@ -21,10 +21,10 @@ def interval_scheduling(start_times, end_times):
     sort_finish_time = sorted(zip(start_times, end_times), key=lambda ele: ele[1])
     
     prev_finish_time = 0
-    for i in range(len(sort_finish_time)):
-        if start_times[i] >= prev_finish_time:
-            result.add(i)
-            prev_finish_time = end_times[i]
+    for start, end in sort_finish_time:
+        if start >= prev_finish_time:
+            result.add(start)
+            prev_finish_time = end
 
     return result
 
@@ -34,7 +34,5 @@ if __name__ == "__main__":
     end = list(map(int, input("Enter end times").split()))
     max_value = interval_scheduling(start, end)
     print(max_value)
-
-
 
 # O(N*logN)
