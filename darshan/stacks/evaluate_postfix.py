@@ -2,6 +2,9 @@ from pythonds import Stack
 
 
 def evaluate_postfix(postfix):
+    # If operand, push into the stack
+    # If operator, pop two operands, push the result into the stack
+    # Pop result from stack
     stack = Stack()
     for i in postfix:
         if i.isalnum():

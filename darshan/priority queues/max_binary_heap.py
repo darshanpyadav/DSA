@@ -50,7 +50,7 @@ class MaxBinaryHeap:
     def build_from_list(self, l):
         self.list = [0] + l[:]
         self.size = len(l)
-        i = len(l) // 2
+        i = len(l) // 2 # sort each levels from bottom up
         while i > 0:
             self.move_down(i)
             i -= 1

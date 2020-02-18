@@ -1,7 +1,7 @@
 from darshan.deque.implementation import Deque
 
 
-def palindrom(string):
+def palindrome(string):
     d = Deque()
 
     for i in string:
@@ -14,5 +14,5 @@ def palindrom(string):
     return True
 
 
-print(palindrom("lsdkjfskf"))
-print(palindrom("radar"))
+print(palindrome("lsdkjfskf"))
+print(palindrome("radar"))

@@ -1,7 +1,7 @@
-from pythonds.basic import Stack
+# from pythonds.basic import Stack
 
 
-class StackList:
+class Stack:
     def __init__(self):
         self.items = []
 
@@ -25,8 +25,7 @@ class StackList:
 
 
 if __name__ == "__main__":
-    # s = Stack()
-    s = StackList()
+    s = Stack()
     s.push(5)
     s.push("hi")
     print(s)

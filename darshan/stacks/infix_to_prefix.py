@@ -3,6 +3,10 @@ import unittest
 
 
 def infix_to_prefix(exp):
+    # Reverse string
+    # Swap ( and )
+    # Do infix to postfix
+    # Reverse the result
     exp = list(exp[::-1])
     for i in range(len(exp)):
         if exp[i] == "(":

@@ -27,7 +27,7 @@ class LinkedList:
         cur = self.head
         while cur is not None and cur.value != item:
             cur = cur.next
-        return cur != None
+        return cur is not None
 
     def find_element_with_index(self, index):
         cur = self.head
@@ -65,12 +65,11 @@ class LinkedList:
             prev = cur
             cur = next
         self.head = prev
-        a = 1
 
     # O(k) -> k = m -n
     def reverse_between_index_m_n(self, m, n):
         m_node = self.find_element_with_index(m)
-        n_node = self.find_element_with_index(n-1)
+        n_node = self.find_element_with_index(n - 1)
 
         n_node_next = n_node.next
         cur = m_node.next
@@ -103,7 +102,7 @@ class LinkedList:
         cur.next = None
 
     def is_empty(self):
-        return self.head == None
+        return self.head is None
 
     def size(self):
         cur = self.head
@@ -119,7 +118,7 @@ class LinkedList:
         if cur is None:
             res = "[]"
         else:
-            res  = "[ "
+            res = "[ "
             while cur.next is not None:
                 res += str(cur.value) + " -> "
                 cur = cur.next
