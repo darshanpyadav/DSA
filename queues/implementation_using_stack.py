@@ -1,4 +1,4 @@
-from darshan.stacks.implementation import Stack
+from stacks.implementation import Stack
 
 
 class QueueUsingStack:

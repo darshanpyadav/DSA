@@ -1,6 +1,8 @@
-# Average time complexity
-# present = n/2
-# absent = n
+
+
+# Best = 1
+# Average = n/2
+# Worst = n
 def search(l, item):
     for i in l:
         if i == item:
@@ -9,8 +11,10 @@ def search(l, item):
 
 
 # List is sorted
-# Average time complexity
-# present = absent = n/2
+# Best = 1
+# Average  = n/2
+# Worst = n
+# Better use when item is not present
 def ordered_search(l, item):
     for i in l:
         if i == item:

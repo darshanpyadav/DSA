@@ -10,6 +10,7 @@ def binary_search_iterative(l, item):
         else:
             first = mid + 1
     return False
+# O(logN)
 
 
 # Not recommended as slicing is again an O(K) operation
