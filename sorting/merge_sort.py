@@ -37,3 +37,4 @@ print(merge_sort([5, 3, 2, 4, 1]))
 
 
 # Best, Worst, Average Time complexity = O(N*logN)
+# Space: O(N)
