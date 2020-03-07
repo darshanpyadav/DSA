@@ -12,7 +12,7 @@ class Vertex:
     def getConnections(self):
         return self.connectedTo.keys()
 
-    def getID(self):
+    def getId(self):
         return self.id
 
     def getWeight(self, nbr):
@@ -47,3 +47,6 @@ class Graph:
 
     def __iter__(self):
         return iter(self.vertList.values())
+
+    def __contains__(self, item):
+        return item in self.vertList
