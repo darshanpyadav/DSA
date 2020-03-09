@@ -141,4 +141,57 @@ Binary search
 Best -> O(1)
 Average and Worst -> O(logN)
 -----------------------------------------------------------------------------------------------------------------------
+/*
+ * V is sorted
+ * V.size() = N
+ * The function is initially called as searchNumOccurrence(V, k, 0, N-1)
+ */
+int searchNumOccurrence(vector<int> &V, int k, int start, int end) {
+    if (start > end) return 0;
+    int mid = (start + end) / 2;
+    if (V[mid] < k) return searchNumOccurrence(V, k, mid + 1, end);
+    if (V[mid] > k) return searchNumOccurrence(V, k, start, mid - 1);
+    return searchNumOccurrence(V, k, start, mid - 1) + 1 + searchNumOccurrence(V, k, mid + 1, end);
+}
+
+Time -> O(N)
+
+Apply master's theorem. T(N) = 2T(N/2) + O(1)
+-----------------------------------------------------------------------------------------------------------------------
+int j = 0;
+        for(int i = 0; i < n; ++i) {
+            while(j < n && arr[i] < arr[j]) {
+                j++;
+            }
+        }
+
+j is global
+
+Time: O(N)
+-----------------------------------------------------------------------------------------------------------------------
+
+int findMinPath(vector<vector<int> > &V, int r, int c) {
+  int R = V.size();
+  int C = V[0].size();
+  if (r >= R || c >= C) return 100000000; // Infinity
+  if (r == R - 1 && c == C - 1) return 0;
+  return V[r][c] + min(findMinPath(V, r + 1, c), findMinPath(V, r, c + 1));
+}
+
+
+Time: O(2^(R+C))
+-----------------------------------------------------------------------------------------------------------------------
+
+int memo[101][101];
+int findMinPath(vector<vector<int> >& V, int r, int c) {
+  int R = V.size();
+  int C = V[0].size();
+  if (r >= R || c >= C) return 100000000; // Infinity
+  if (r == R - 1 && c == C - 1) return 0;
+  if (memo[r][c] != -1) return memo[r][c];
+  memo[r][c] =  V[r][c] + min(findMinPath(V, r + 1, c), findMinPath(V, r, c + 1));
+  return memo[r][c];
+}
+
+Time: O(R*C)
 '''

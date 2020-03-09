@@ -23,11 +23,7 @@
 
 def add_one_to_number(a):
     int_a = int("".join(map(str, a)))
-    if int_a + 1 < 0:
-        l = list(map(int, list(str(int_a + 1))[1:]))
-        l[0] = l[0]*-1
-        return l
-    return list(map(int, list(str(int_a + 1))))
+    return list(map(int, str(int_a+1)))
 
 
 if __name__ == "__main__":
