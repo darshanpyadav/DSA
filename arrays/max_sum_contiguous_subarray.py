@@ -35,7 +35,7 @@ def max_sum(l):
             curr += 1
     return max_sum, start, end
 
-
+# *****************************************************************************
 # Using DP
 
 def max_sum_dp(l):

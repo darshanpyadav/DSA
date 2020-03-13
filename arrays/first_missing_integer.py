@@ -46,7 +46,6 @@ def firstMissingPositive(A):
     return len(A)+1
 
 
-
 print(firstMissingPositive([2,3,7,6,8]))
 print(firstMissingPositive([3,4,-1,1,7]))
 print(firstMissingPositive([1,1,0]))
