@@ -13,21 +13,22 @@ Your algorithm should run in O(n) time and use constant space.
 '''
 
 
-# def firstMissingPositive(A):
-#     # Time: O(N)
-#     # Space: O(N)
-#
-#     d = {}
-#     for i in A:
-#         if i > 0:
-#             d[i] = i
-#
-#     for i in range(1, len(d)+1):
-#         try:
-#             a = d[i]
-#         except KeyError:
-#             return i
-#     return len(d) + 1
+def firstMissingPositive(A):
+    # Time: O(N)
+    # Space: O(N)
+
+    d = {}
+    for i in A:
+        if i > 0:
+            d[i] = i
+
+    for i in range(1, len(d)+1):
+        try:
+            a = d[i]
+        except KeyError:
+            return i
+    return len(d) + 1
+# *****************************************************************************
 
 
 def firstMissingPositive(A):

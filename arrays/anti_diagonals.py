@@ -40,7 +40,7 @@ Return the following :
 #     return r
 
 # There are 2n - 1 diagonals, hence set them to []
-# Sum of anti diagonals will be same, hence append all the common ones. T
+# Sum of indexes anti diagonals will be same, hence append all the common ones. T
 def anti_diagonals(A):
     d = {}
     n = len(A)

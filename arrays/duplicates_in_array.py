@@ -1,18 +1,31 @@
-# list of N integers have numbers in range 0 to N-1
+'''
+Given a read only array of n + 1 integers between 1 and n, find one number that repeats in linear time using less than
+O(n) space and traversing the stream sequentially O(1) times.
+
+Sample Input:
+
+[3 4 1 4 1]
+Sample Output:
+
+1
+If there are multiple possible answers ( like in the sample case above ), output any one.
+
+If there is no duplicate, output -1
+'''
 
 
-# def duplicates(A):
-#     # Time O(N)
-#     # Space O(N)
-#     d = {}
-#
-#     for i in A:
-#         try:
-#             d[i] += 1
-#             return i
-#         except KeyError:
-#             d[i] = 1
-#     return -1
+def duplicates(A):
+    # Time O(N)
+    # Space O(N)
+    d = {}
+
+    for i in A:
+        try:
+            d[i] += 1
+            return i
+        except KeyError:
+            d[i] = 1
+    return -1
 
 # ************************************************************************************************
 # Input: [2, 3, 3, 1]
