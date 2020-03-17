@@ -1,11 +1,3 @@
-# *****************************************************************************
-# Author            : darshanp
-# Date              : 14/09/19
-# Last modified by  : darshanp
-# Version           : 1.0
-# Description       : Let-s-do-it
-# *****************************************************************************
-
 # Problem
 '''
 You are in an infinite 2D grid where you can move in any of the 8 directions :
