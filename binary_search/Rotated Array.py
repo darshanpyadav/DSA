@@ -17,7 +17,7 @@ def findMin(A):
         if A[start] < A[end] or A[mid] < A[start]:
             end = mid
         else:
-            start = mid+1
+            start = mid + 1
 
     return A[start]
 
