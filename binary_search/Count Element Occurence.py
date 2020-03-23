@@ -26,6 +26,7 @@ def findCount(A, B):
         else:
             start = mid + 1
 
+    # or use bisect_left and bisect_right
     if search_index != -1:
         for i in range(search_index-1, -1, -1):
             if A[i] == B:
@@ -36,7 +37,31 @@ def findCount(A, B):
                 count += 1
 
     return count
+# **********************************************************************************************************************
 
+
+def search(A, B, first=True):
+    start, end = 0, len(A)
+    index = -1
+    while start <= end:
+        mid = (start+end)//2
+        if A[mid] == B:
+            index = mid
+            if first:
+                end = mid - 1
+            else:
+                start = mid + 1
+        elif A[mid] > B:
+            end = mid - 1
+        else:
+            start = mid + 1
+    return index
+
+
+def findCount(A, B):
+    first = search(A, B)
+    last = search(A, B, False)
+    return last - first + 1
 
 # print(findCount([5,7,7,8,8,8,8,10], 8))
-print(findCount([ 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 5, 5, 5, 5, 5, 6, 6, 6, 7, 7, 8, 8, 8, 8, 9, 9, 10, 10, 10 ], 1))
+print(findCount([ 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 5, 5, 5, 5, 5, 6, 6, 6, 7, 7, 8, 8, 8, 8, 9, 9, 10, 10, 10 ], 8))

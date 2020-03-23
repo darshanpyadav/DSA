@@ -12,11 +12,15 @@ The array will not contain duplicates.
 def findMin(A):
     start, end = 0, len(A)-1
 
-    while start < end:
+    while start <= end:
         mid = (start+end)//2
-        if A[start] < A[end] or A[mid] < A[start]:
-            end = mid
+        if A[mid] < A[start]:
+            if A[mid-1] > A[mid]:
+                return A[mid]
+            end = mid - 1
         else:
+            if A[mid+1] < A[mid]:
+                return A[mid+1]
             start = mid + 1
 
     return A[start]

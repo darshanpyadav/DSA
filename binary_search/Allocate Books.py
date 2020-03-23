@@ -25,18 +25,39 @@ Constraints
 
 1 <= N <= 10^5
 1 <= A[i] <= 10^5
+
+Input 1:
+    A = [12, 34, 67, 90]
+    B = 2
+Output 1:
+    113
+Explanation 1:
+    There are 2 number of students. Books can be distributed in following fashion :
+        1) [12] and [34, 67, 90]
+        Max number of pages is allocated to student 2 with 34 + 67 + 90 = 191 pages
+        2) [12, 34] and [67, 90]
+        Max number of pages is allocated to student 2 with 67 + 90 = 157 pages
+        3) [12, 34, 67] and [90]
+        Max number of pages is allocated to student 1 with 12 + 34 + 67 = 113 pages
+
+        Of the 3 cases, Option 3 has the minimum pages = 113.
+
+Input 2:
+    A = [5, 17, 100, 11]
+    B = 4
+Output 2:
+    100
 '''
 
 
 def books(books_list, students):
     def all_gets_books(total_pages):
         left_pages, count,  = total_pages, 1
-        remaining_students = students - count
         for pages in books_list:
             if pages > total_pages:
                 return False
             left_pages -= pages
-            if left_pages < 0 or remaining_students < 0:
+            if left_pages < 0:
                 count += 1
                 left_pages = total_pages - pages
         return count <= students
@@ -48,6 +69,7 @@ def books(books_list, students):
 
     while start <= end:
         mid = (start+end)//2
+        # assume mid is minimum maximum pages students can read
         if all_gets_books(mid):
             end = mid - 1
         else:
@@ -57,4 +79,6 @@ def books(books_list, students):
 
 A = [ 73, 58, 30, 72, 44, 78, 23, 9 ]
 B = 5
-print(books(A,B))
+A = [5, 17, 100, 11]
+B = 4
+print(books(A, B))

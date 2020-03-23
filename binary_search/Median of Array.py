@@ -32,16 +32,13 @@ def get_min_val(min_val, max_val, A, B, k):
 
 def findMedianSortedArrays(A, B):
     if not len(A):
-        min_val = B[0]
-        max_val = B[-1]
+        min_val, max_val = B[0], B[-1]
 
     if not len(B):
-        min_val = A[0]
-        max_val = A[-1]
+        min_val, max_val = A[0],  A[-1]
 
     if len(A) and len(B) > 0:
-        min_val = min(A[0], B[0])
-        max_val = max(A[-1], B[-1])
+        min_val, max_val = min(A[0], B[0]), max(A[-1], B[-1])
 
     l = len(A) + len(B)
 

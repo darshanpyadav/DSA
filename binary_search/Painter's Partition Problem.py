@@ -59,7 +59,7 @@ def paint(n, t, paintings):
         for time in paintings:
             if time > allowed_time:
                 return False
-            time_left_for_painter -= time
+            time_left_for_painter -= time*t
             if time_left_for_painter < 0:
                 # painter changes, calculate time remaining for new painter
                 time_left_for_painter = allowed_time-time

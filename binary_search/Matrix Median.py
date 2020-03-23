@@ -61,7 +61,7 @@ def findMedian(A):
 from bisect import bisect_right
 
 
-def indMedian(A):
+def findMedian(A):
     if len(A) == 0:
         return []
 
@@ -76,18 +76,18 @@ def indMedian(A):
         max_element = max(max_element, A[i][-1])
 
     # For median, number of elements on either sides are same == (mn)//2
-    while min_element < max_element:
+    while min_element <= max_element:
         mid = (min_element + max_element)//2
 
         count = 0
         for row in A:
             # number of elements smaller than element
-            count += bisect_right(A[row], mid)
+            count += bisect_right(row, mid)
 
         if count < k:
             min_element = mid + 1
         else:
-            max_element = mid
+            max_element = mid - 1
 
     return min_element
 

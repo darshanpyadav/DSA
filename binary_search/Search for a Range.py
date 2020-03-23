@@ -66,8 +66,11 @@ def searchRange(A, B):
 
     return r
 # **********************************************************************************************************************
+
+
 def searchRange(A, B):
     res = []
+
     def search(A, B, first=True):
         n = len(A)
         start, end = 0, n-1
