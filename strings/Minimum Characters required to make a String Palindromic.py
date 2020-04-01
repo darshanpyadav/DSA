@@ -32,12 +32,27 @@ Output 2:
 
 
 def solve(string):
-    if string == string[::-1]:
+    # O(N^2)
+    # if string == string[::-1]:
+    #     return 0
+    # for i in range(1, len(string)):
+    #     b = string[-1*i:][::-1] + string
+    #     if b == b[::-1]:
+    #         return i
+
+    # O(N)
+    if len(A) <= 1:
         return 0
-    for i in range(1, len(string)):
-        b = string[-1*i:][::-1] + string
-        if b == b[::-1]:
-            return i
+    i, j, j_start = 0, len(A)-1, len(A)-1
+    while i < j:
+        if A[i] == A[j]:
+            i += 1
+            j -= 1
+        else:
+            j = j_start - 1
+            j_start = j
+            i = 0
+    return len(A) - 1 - j_start
 
 
 A = "ABC"

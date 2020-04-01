@@ -25,7 +25,6 @@ def restoreIpAddresses(string):
         if d == 4:
             if c != 3:
                 c, d = c+1, 1
-                d = 1
             elif b != 3:
                 b, c, d = b+1, 1, 1
             else:
