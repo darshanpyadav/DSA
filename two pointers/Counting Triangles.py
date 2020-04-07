@@ -29,6 +29,8 @@ def nTriang(A):
     #             count += 1
     # return count
 
+    # Can use either Front-back or Fast-slow pointers
+    # We need 3 items hence at-least O(N^2) is needed
     count = 0
     A.sort(reverse=True)
     for i in range(len(A)-2):
@@ -44,5 +46,5 @@ def nTriang(A):
 
 A = [1, 1, 1, 2, 2]
 A = [1, 1, 1, 1, 1]
-A = [ 4, 6, 13, 16, 20, 3, 1, 12 ]
+A = [4, 6, 13, 16, 20, 3, 1, 12]
 print(nTriang(A))

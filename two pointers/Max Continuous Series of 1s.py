@@ -39,15 +39,49 @@ def maxone(A, B):
     #         max_count = count
     # return list(range(x, y))
 
+    # O(N^2)
+    # Fast slow pointer
+    if B > len(A):
+        return list(range(len(A)))
 
-A = [1, 1, 0, 1, 1, 0, 0, 1, 1, 1]
-B = 1
+    x, y = -1, -1
+    slow, fast = 0, 0
+    number = B
+    max_count, count = 0, 0
+
+    while len(A) > fast:
+        if A[fast] == 0:
+            if number > 0:
+                number -= 1
+                count += 1
+                fast += 1
+            else:
+                # halt fast and move slow pointer
+                if A[slow] == 0:
+                    number += 1
+                # decrease count while moving slow
+                count -= 1
+                slow += 1
+        else:
+            count += 1
+            fast += 1
+        if count > max_count:
+            x, y = slow, fast
+            max_count = count
+
+    return list(range(x, y))
+
+
+# A = [1, 1, 0, 1, 1, 0, 0, 1, 1, 1]
+# B = 1
 A = [1, 0, 0, 1, 1, 0, 1, 0, 1, 1, 1]
 B = 2
 A = [0, 0, 0, 1]
 B = 4
 A = [1, 0, 0, 1, 1, 0, 1, 0, 1, 1, 1]
 B = 1
-A = [ 1, 0, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 0]
+A = [1, 0, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 0]
 B = 4
+A = [0, 1, 1, 1 ]
+B = 0
 print(maxone(A, B))

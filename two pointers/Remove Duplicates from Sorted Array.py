@@ -22,6 +22,6 @@ def removeDuplicates(A):
     return A[:prev_index+1]
 
 
-A = [0,1,1,2,3,3,3]
+A = [0, 1, 1, 2, 3, 3, 3]
 # A = [0]
 print(removeDuplicates(A))

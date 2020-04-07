@@ -41,7 +41,6 @@ def solve(A, B, C):
         if diff == 0:
             return 0
         if diff < min_diff:
-            print(a,b,c)
             min_diff = diff
         indices[max_ele[1]] -= 1
     return min_diff

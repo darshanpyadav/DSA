@@ -26,11 +26,12 @@ def diffPossible(A, B):
     # return 0
 
     # O(N)
+    # Only 2 items in consideration hence at-least O(N) is needed
+    # Front-end pointer not working for conditions where target < A[0], so using Fast-slow pointer
     if len(A) == 1:
         return 0
     i, j = 0, 1
-    while i < len(A) and j < len(A):
-        print(A[i],  A[j])
+    while i < len(A)-1 and j < len(A):
         if A[j]-A[i] == B:
             return 1
         elif A[j] - A[i] < B:
@@ -45,8 +46,8 @@ A = [1, 2, 3, 9, 13, 15]
 B = 6
 A = [1, 2, 2, 3, 4]
 B = 0
-A = [1, 2, 3]
-B = 0
+# A = [1, 2, 3]
+# B = 0
 # A = [0, 1, 9, 10, 13, 17, 17, 17, 23, 25, 29, 30, 37, 38, 39, 39, 40, 41, 42, 60, 64, 70, 70, 70, 72, 75, 85, 85, 90,
 #       91, 91, 93, 95]
 # B = 83

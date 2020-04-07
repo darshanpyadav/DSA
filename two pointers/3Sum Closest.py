@@ -13,6 +13,8 @@ The sum that is closest to the target is 2. (-1 + 2 + 1 = 2)
 
 
 def threeSumClosest(A, B):
+    # Can use either Front-back or Fast-slow pointers
+    # We need 3 items hence at-least O(N^2) is needed
     prev_diff = float('inf')
     r = 0
     A = sorted(A)

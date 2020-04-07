@@ -13,8 +13,24 @@ A solution set is:
 
 
 def threeSum(A):
+    # Can use either Front-back or Fast-slow pointers
+    # We need 3 items hence at-least O(N^2) is needed
     A = sorted(A)
     s = set()
+    # for i in range(len(A)-2):
+    #     start, end = i+1, i+2
+    #     while start < len(A)-1 and end < len(A):
+    #         print(i, start, end)
+    #         a, b, c = A[i], A[start], A[end]
+    #         if a + b + c == 0:
+    #             s.add((a, b, c))
+    #             start = start + 1
+    #             end = start + 1
+    #         elif a + b + c < 0:
+    #             end += 1
+    #         else:
+    #             start += 1
+    # return list(map(list, sorted(s)))
 
     for i in range(len(A)-2):
         start, end = i+1, len(A)-1
@@ -31,5 +47,5 @@ def threeSum(A):
 
 
 A = [-1, 0, 1, 2, -1, -4]
-A = [ 1, -4, 0, 0, 5, -5, 1, 0, -2, 4, -4, 1, -1, -4, 3, 4, -1, -1, -3 ]
+# A = [ 1, -4, 0, 0, 5, -5, 1, 0, -2, 4, -4, 1, -1, -4, 3, 4, -1, -1, -3 ]
 print(threeSum(A))
