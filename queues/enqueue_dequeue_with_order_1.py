@@ -1,4 +1,4 @@
-from darshan.linked_lists.append_with_order_1 import LinkedList
+from linked_lists.append_with_order_1 import LinkedList
 
 
 class QueueList:

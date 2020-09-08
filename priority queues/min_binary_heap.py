@@ -20,20 +20,19 @@ class MinBinaryHeap:
 
     def move_up(self, size):
         while size // 2 > 0:
-            if self.list[size] < self.list[size//2]:
-                self.list[size], self.list[size//2] = self.list[size//2], self.list[size]
+            if self.list[size] < self.list[size // 2]:
+                self.list[size], self.list[size // 2] = self.list[size // 2], self.list[size]
             size //= 2
 
     def get_min(self):
-        return self.list[self.size]
+        return self.list[1]
 
     def delete_min(self):
         # O(logN)
         # No of nodes in a complete binary tree 2^l-1 (n is levels).
         # No of levels = log(nodes + 1) base2
         del_item = self.list[1]
-        self.list[1] = self.list[self.size]
-        self.list.pop()
+        self.list[1] = self.list.pop()
         self.size -= 1
         self.move_down(1)
         return del_item
@@ -46,13 +45,13 @@ class MinBinaryHeap:
             i = min_index
 
     def get_min_index(self, i):
-        if 2*i+1 > self.size:
-            return 2*i
-        return 2*i if self.list[2*i] <= self.list[2*i+1] else 2*i+1
+        if 2 * i + 1 > self.size:
+            return 2 * i
+        return 2 * i if self.list[2 * i] <= self.list[2 * i + 1] else 2 * i + 1
 
     def build_from_list(self, l):
         # O(N/2*logN/2)
-        i = len(l) // 2  #parents will be at l//2. Start from i till 0
+        i = len(l) // 2  # parents will be at l//2. Start from i till 0
         self.size = len(l)
         self.list = [0] + l[:]
         while i > 0:

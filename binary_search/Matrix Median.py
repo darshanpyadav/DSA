@@ -84,7 +84,7 @@ def findMedian(A):
             # number of elements smaller than element
             count += bisect_right(row, mid)
 
-        if count < k:
+        if count <= k:
             min_element = mid + 1
         else:
             max_element = mid - 1
@@ -94,10 +94,10 @@ def findMedian(A):
 
 A = [   [1, 3, 5],
         [2, 6, 9],
-        [3, 6, 9]   ]
-A = [
-    [1, 3, 5],
-    [2, 6, 9],
-    [3, 6, 9]
-]
+        [3, 6, 12]   ]
+# A = [
+#     [1, 3, 5],
+#     [2, 6, 9],
+#     [3, 6, 9]
+# ]
 print(findMedian(A))

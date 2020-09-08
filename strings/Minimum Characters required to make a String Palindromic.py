@@ -49,8 +49,8 @@ def solve(string):
             i += 1
             j -= 1
         else:
-            j = j_start - 1
-            j_start = j
+            j_start -= 1
+            j = j_start
             i = 0
     return len(A) - 1 - j_start
 

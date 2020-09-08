@@ -46,10 +46,10 @@ Output 2:
 def search(A, B):
     n = len(A)
     start, end = 0, n-1
-    while start < end:
+    while start <= end:
         mid = (start+end)//2
         if A[start] < A[end] or A[mid] < A[start]:
-            end = mid
+            end = mid - 1
         else:
             start = mid + 1
 

@@ -2,7 +2,6 @@ from functools import cmp_to_key
 
 
 def sort_fun(a, b):
-    print(a, b)
     return int(b+a) - int(a+b)
 
 

@@ -62,7 +62,7 @@ def paint(n, t, paintings):
             time_left_for_painter -= time*t
             if time_left_for_painter < 0:
                 # painter changes, calculate time remaining for new painter
-                time_left_for_painter = allowed_time-time
+                time_left_for_painter = allowed_time-time*t
                 painters += 1
 
         return painters <= n

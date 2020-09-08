@@ -1,4 +1,4 @@
-from darshan.deque.implementation import Deque
+from deque.implementation import Deque
 
 
 def palindrome(string):

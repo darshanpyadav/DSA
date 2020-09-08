@@ -31,33 +31,38 @@
 #     return r
 
 
-def spiral_matrix(arr):
+def spiral_matrix(A):
     r = []
-    row_start = 0
-    col_start = 0
-    row_end = len(A)-1
-    col_end = len(A[0])-1
+    row_start, col_start = 0, 0
+    row_end, col_end = len(A)-1, len(A[0])-1
+    direction = 0
 
     while row_start <= row_end and col_start <= col_end:
-        # left to right
-        for i in range(col_start, col_end+1):
-            r.append(A[row_start][i])
-        row_start += 1
+        if direction == 0:
+            # left to right
+            for i in range(col_start, col_end+1):
+                r.append(A[row_start][i])
+            row_start += 1
 
-        # top to bottom
-        for i in range(row_start, row_end+1):
-            r.append(A[i][col_end])
-        col_end -= 1
+        elif direction == 1:
+            # top to bottom
+            for i in range(row_start, row_end+1):
+                r.append(A[i][col_end])
+            col_end -= 1
 
-        # right to left
-        for i in range(col_end, col_start-1, -1):
-            r.append(A[row_end][i])
-        row_end -= 1
+        elif direction == 2:
+            # right to left
+            for i in range(col_end, col_start-1, -1):
+                r.append(A[row_end][i])
+            row_end -= 1
 
-        # bottom to top
-        for i in range(row_end, row_start-1, -1):
-            r.append(A[col_start][i])
-        col_start += 1
+        elif direction == 3:
+            # bottom to top
+            for i in range(row_end, row_start-1, -1):
+                r.append(A[i][col_start])
+            col_start += 1
+
+        direction = (direction + 1) % 4
 
     return r
 
@@ -91,16 +96,16 @@ def spiral_matrix(arr):
 #     [207, 350, 272, 233],
 #     [140, 327, 125, 168]
 # ]
-A = [
-    [44],
-    [36],
-    [395],
-    [179],
-    [249],
-    [349],
-    [5],
-    [139]
-]
+# A = [
+#     [44],
+#     [36],
+#     [395],
+#     [179],
+#     [249],
+#     [349],
+#     [5],
+#     [139]
+# ]
 A = [
     [324, 168, 142, 201, 119],
     [245, 165, 307, 308, 115],

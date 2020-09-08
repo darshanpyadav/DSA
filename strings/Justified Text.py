@@ -61,6 +61,6 @@ def fullJustify(A, B):
 
 A = ["This", "is", "an", "example", "of", "text", "justification", "yes"]
 B = 16
-A = [ "What", "must", "be", "shall", "be." ]
-B = 12
+# A = [ "What", "must", "be", "shall", "be." ]
+# B = 12
 print(fullJustify(A, B))

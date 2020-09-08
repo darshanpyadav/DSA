@@ -37,6 +37,6 @@ def findPerm(A, B):
     return r
 
 
-# print(findPerm("ID", 3))
-# print(findPerm("DDIDI", 6))
+print(findPerm("ID", 3))
+print(findPerm("DDIDI", 6))
 print(findPerm("IDIDI", 6))

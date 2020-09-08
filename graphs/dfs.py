@@ -5,7 +5,6 @@ def dfs(g, start, visited=None):
     if not visited:
         visited = []
     visited.append(start)
-    print(start)
 
     for v in g.getVertex(start).getConnections():
         if v.id not in visited:

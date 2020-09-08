@@ -28,5 +28,5 @@ print(l)
 
 
 # Best, Average Time complexity = O(N*logN)
-# Worst Time complexity = O(N^2)
+# Worst Time complexity = O(N^2), when array is already sorted in increasing or decreasing order
 # Space: O(N*LogN)

@@ -31,14 +31,11 @@ def rotate(A):
     B = deepcopy(A)
     l = len(A)
 
-    m, n = -1, -1
-    for j in range(l):
-        m, n = m+1, 0
-        for i in range(l-1, -1, -1):
-            A[m][n] = B[i][j]
-            n += 1
+    for i in range(l):
+        for j in range(l):
+            B[i][j] = A[l-1-j][i]
 
-    return A
+    return B
 
 
 A = [

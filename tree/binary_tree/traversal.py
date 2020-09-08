@@ -23,6 +23,6 @@ def inorder(tree):
 
 def postorder(tree):
     if tree:
-        postorder(tree.get_right())
         postorder(tree.get_left())
+        postorder(tree.get_right())
         print(tree.get_key())

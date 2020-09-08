@@ -45,7 +45,7 @@ def findMedianSortedArrays(A, B):
     if l % 2 != 0:
         return get_min_val(min_val, max_val, A, B, l//2)
     else:
-        return (get_min_val(min_val, max_val, A, B, l//2) + get_min_val(min_val, max_val, A, B, (l-1)//2))/2
+        return (get_min_val(min_val, max_val, A, B, l//2) + get_min_val(min_val, max_val, A, B, l//2 - 1))/2
 
 
 A = [1, 4, 5]

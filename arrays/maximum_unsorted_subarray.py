@@ -36,7 +36,7 @@ def subUnsort(arr):
             e = i
             break
 
-    min_unsorted, max_unsorted = min(arr[s:]), max(arr[s:e + 1])
+    min_unsorted, max_unsorted = min(arr[s:e + 1]), max(arr[s:e + 1])
 
     for i in range(s):
         if arr[i] > min_unsorted:
@@ -53,7 +53,7 @@ def subUnsort(arr):
 
 # print(subUnsort([ 1, 2, 3 ]))
 # print(subUnsort([1, 3, 2, 4, 5]))
-# print(subUnsort([1, 2, 2, 3, 3, 5, 6, 6, 14, 17, 18, 17, 18, 15, 15, 17, 19, 14, 19, 18]))
+print(subUnsort([1, 2, 2, 3, 3, 5, 6, 6, 14, 17, 18, 17, 18, 15, 15, 17, 19, 14, 19, 18]))
 # print(subUnsort([20, 1, 2, 2, 3, 3, 5, 6, 6, 14, 17, 18, 17, 18, 15, 15, 17, 19, 14, 19, 18]))
 # print(subUnsort([ 4, 15, 4, 4, 15, 18, 20 ]))
 # print(subUnsort([1, 4, 1, 2, 3]))

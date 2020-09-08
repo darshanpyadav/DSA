@@ -45,7 +45,7 @@ Explanation 2:
 
 
 def max_sum(l):
-    current_sum = 0
+    current_sum = float('-inf')
     curr = 0
     max_sum = l[0]
     start, end = 0, 0
@@ -68,7 +68,7 @@ def max_sum(l):
 def max_sum_dp(l):
     current_sum = l[0]
     max_sum = l[0]
-    for i in l:
+    for i in l[1:]:
         current_sum = max(i, current_sum + i)
         max_sum = max(current_sum, max_sum)
     return max_sum

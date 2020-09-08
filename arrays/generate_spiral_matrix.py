@@ -1,5 +1,5 @@
 def generate_spiral_matrix(A):
-    mat = [[None]*A for _ in range(A)]
+    mat = [[0]*A for _ in range(A)]
     count = 1
     row_start, col_start = 0, 0
     row_end, col_end = A-1, A-1
@@ -32,4 +32,4 @@ def generate_spiral_matrix(A):
     return mat
 
 
-print(generate_spiral_matrix(5))
+print(generate_spiral_matrix(4))

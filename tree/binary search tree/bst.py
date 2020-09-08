@@ -1,5 +1,6 @@
 from pythonds import BinarySearchTree
 
+
 class TreeNode:
     def __init__(self, key, val, lc=None, rc=None, parent=None):
         self.key = key

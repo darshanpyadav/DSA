@@ -1,4 +1,4 @@
-from darshan.stacks.infix_to_postfix import infix_to_postfix
+from stacks.infix_to_postfix import infix_to_postfix
 import unittest
 
 

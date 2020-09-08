@@ -1,3 +1,4 @@
+from collections import defaultdict
 '''
 Input:
 
@@ -42,15 +43,12 @@ Return the following :
 # There are 2n - 1 diagonals, hence set them to []
 # Sum of indexes anti diagonals will be same, hence append all the common ones. T
 def anti_diagonals(A):
-    d = {}
+    d = defaultdict(lambda: [])
     n = len(A)
-    for i in range(2*n - 1):
-        d[i] = []
 
     for i in range(n):
         for j in range(n):
-            l = i + j
-            d[l].append(A[i][j])
+            d[i+j].append(A[i][j])
 
     return list(d.values())
 

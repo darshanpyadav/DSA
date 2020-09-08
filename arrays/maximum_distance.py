@@ -35,20 +35,19 @@ def maximumGap(A):
     return max_distance
 
 # *****************************************************************************
+
+
 def maximumGap(A):
-    n = len(A)
-    combined_list = zip(A, range(n))
-    combined_list = sorted(combined_list)
-
-    # calculate prefix max index array
-    max_index = [None]*n
-    index = float('-inf')
-    for i in range(n-1, -1, -1):
-        index = max(index, combined_list[i][1])
-        max_index[i] = index
-
-    # calculate maximum j-i
-    return max(max_index[i] - combined_list[i][1] for i in range(n))
+    array = list(range(len(A)))
+    array.sort(key=lambda i: A[i])
+    max_gap = 0
+    current_min = array[0]
+    for i in array:
+        if i < current_min:
+            current_min = i
+        else:
+            max_gap = max(max_gap, i - current_min)
+    return max_gap
 
 
 print(maximumGap([3, 5, 4, 2]))
