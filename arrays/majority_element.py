@@ -33,6 +33,7 @@ def is_majority(nums, ele):
 if __name__ == "__main__":
     # assert Solution().majorityElement([1, 2, 2, 3, 3, 3, 3]) == 3
     # assert Solution().majorityElement([3, 3, 3, 3, 1, 1, 2]) == 3
-    get_majority_ele = majority_element([3, 3, 4, 2, 4, 4, 2, 4, 1])
-    is_majority = is_majority([3, 3, 4, 2, 4, 4, 2, 4, 1], get_majority_ele)
+    get_majority_ele = majority_element([4, 4, 4, 2, 4, 4, 4, 1, 1, 1, 1])
+    print(get_majority_ele)
+    is_majority = is_majority([4, 4, 4, 2, 4, 4, 4, 1, 1, 1, 1], get_majority_ele)
     print(is_majority)
