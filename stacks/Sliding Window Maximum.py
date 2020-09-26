@@ -50,19 +50,19 @@ def slidingMaximum(A, B):
     #     max_arr.append(max(A[i:i+1+B]))
     #
     # return max_arr
-    i = 0
-    out = [max(A[i:i + B])]
+    res = [max(A[:B])]
     for i in range(len(A)-B):
-        new = A[i+B]
-        old = A[i]
-        if new > out[-1]:
-            out.append(new)
+        next = A[i+B]
+        prev = A[i]
+        if next > res[-1]:
+            res.append(next)
         else:
-            if out[-1] == old:
-                out.append(max(A[i+1:i+1+B]))
+            # check if the element left out was the maximum, if yes calculate new max
+            if res[-1] == prev:
+                res.append(max(A[i+1:i+1+B]))
             else:
-                out.append(out[-1])
-    return out
+                res.append(res[-1])
+    return res
 
 
 A = [1, 3, -1, -3, 5, 3, 6, 7]

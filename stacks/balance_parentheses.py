@@ -10,18 +10,18 @@ def dec(fun):
 
 
 @dec
-def balance_parentheses(string):
-    stack = Stack()
+def balance_parentheses(A):
+    stack = []
 
-    for i in string:
+    for i in A:
         if i == "(":
-            stack.push(i)
-        elif i == ")":
-            stack.pop()
+            stack.append(i)
         else:
-            continue
+            if len(stack) == 0:
+                return 0
+            stack.pop()
 
-    return stack.isEmpty()
+    return 1 if len(stack) == 0 else 0
 
 
 if __name__ == "__main__":
