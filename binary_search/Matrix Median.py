@@ -69,7 +69,10 @@ def findMedian(A):
     min_element, max_element = float('inf'), float('-inf')
 
     # Number of elements should be present on either sides
-    k = (m*n + 1)//2
+    # Bisect right gives the rightmost position to insert a no in sorted list
+    # As we are using bisect right there should be a number in the matrix such that count == (mn)//2
+    # Hence use k = (m*n) //2 + 1
+    k = (m*n)//2 + 1
 
     for i in range(m):
         min_element = min(min_element, A[i][0])
@@ -84,7 +87,7 @@ def findMedian(A):
             # number of elements smaller than element
             count += bisect_right(row, mid)
 
-        if count <= k:
+        if count < k:
             min_element = mid + 1
         else:
             max_element = mid - 1
@@ -92,12 +95,12 @@ def findMedian(A):
     return min_element
 
 
-A = [   [1, 3, 5],
-        [2, 6, 9],
-        [3, 6, 12]   ]
-# A = [
-#     [1, 3, 5],
-#     [2, 6, 9],
-#     [3, 6, 9]
-# ]
+# A = [   [1, 3, 5],
+#         [2, 6, 9],
+#         [3, 6, 12]   ]
+A = [
+    [5, 7, 101],
+    [55, 65, 200],
+    [201, 500, 600]
+]
 print(findMedian(A))

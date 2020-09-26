@@ -1,4 +1,4 @@
-'''
+"""
 You are given with an array of 1s and 0s. And you are given with an integer M, which signifies number of flips allowed.
 Find the position of zeros which when flipped will produce maximum continuous series of 1s.
 
@@ -14,7 +14,7 @@ Output :
 [0, 1, 2, 3, 4]
 
 If there are multiple possible solutions, return the sequence which has the minimum start index.
-'''
+"""
 
 
 def maxone(A, B):
@@ -46,19 +46,19 @@ def maxone(A, B):
 
     x, y = -1, -1
     slow, fast = 0, 0
-    number = B
+    flips_left = B
     max_count, count = 0, 0
 
     while len(A) > fast:
         if A[fast] == 0:
-            if number > 0:
-                number -= 1
+            if flips_left > 0:
+                flips_left -= 1
                 count += 1
                 fast += 1
             else:
                 # halt fast and move slow pointer
                 if A[slow] == 0:
-                    number += 1
+                    flips_left += 1
                 # decrease count while moving slow
                 count -= 1
                 slow += 1
@@ -76,12 +76,12 @@ def maxone(A, B):
 # B = 1
 A = [1, 0, 0, 1, 1, 0, 1, 0, 1, 1, 1]
 B = 2
-A = [0, 0, 0, 1]
-B = 4
-A = [1, 0, 0, 1, 1, 0, 1, 0, 1, 1, 1]
-B = 1
-A = [1, 0, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 0]
-B = 4
-A = [0, 1, 1, 1 ]
-B = 0
+# A = [0, 0, 0, 1]
+# B = 4
+# A = [1, 0, 0, 1, 1, 0, 1, 0, 1, 1, 1]
+# B = 1
+# A = [1, 0, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 0]
+# B = 4
+# A = [0, 1, 1, 1 ]
+# B = 0
 print(maxone(A, B))

@@ -1,4 +1,4 @@
-'''
+"""
 Find the intersection of two sorted arrays.
 OR in other words,
 Given 2 sorted arrays, find all the elements which occur in both the arrays.
@@ -17,7 +17,7 @@ Input :
 
 Output : [3 5]
  NOTE : For the purpose of this problem ( as also conveyed by the sample case ), assume that elements that appear more than once in both arrays should be included multiple times in the final output.
-'''
+"""
 
 
 def intersect(A, B):

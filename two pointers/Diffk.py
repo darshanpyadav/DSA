@@ -32,13 +32,12 @@ def diffPossible(A, B):
         return 0
     i, j = 0, 1
     while i < len(A)-1 and j < len(A):
-        if A[j]-A[i] == B:
+        if A[j]-A[i] == B and i != j:
             return 1
-        elif A[j] - A[i] < B:
-            j += 1
+        elif A[j] - A[i] > B:
+            i += 1
         else:
-            i = i+1
-            j = i+1
+            j += 1
     return 0
 
 

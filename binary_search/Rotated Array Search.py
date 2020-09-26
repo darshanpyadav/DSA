@@ -45,15 +45,20 @@ Output 2:
 
 def search(A, B):
     n = len(A)
-    start, end = 0, n-1
+    start, end = 0, len(A)-1
+
     while start <= end:
         mid = (start+end)//2
+        if A[mid-1] > A[mid] < A[mid+1]:
+            start_index = mid
+            break
         if A[start] < A[end] or A[mid] < A[start]:
             end = mid - 1
         else:
             start = mid + 1
+    else:
+        start_index = start
 
-    start_index = start
     start, end = 0, n-1
     
     while start <= end:

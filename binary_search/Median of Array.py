@@ -23,7 +23,7 @@ def get_min_val(min_val, max_val, A, B, k):
     while min_val <= max_val:
         mid = (min_val+max_val)//2
         count = bisect_right(A, mid) + bisect_right(B, mid)
-        if count <= k:
+        if count < k+1:
             min_val = mid + 1
         else:
             max_val = mid - 1

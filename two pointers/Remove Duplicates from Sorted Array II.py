@@ -15,28 +15,15 @@ Your function should return length = 3, and A is now [1,1,2].
 
 
 def removeDuplicates(A):
-    # prev_index, prev_val = 0, A[0]
-    # count = 1
-    # for i in range(1, len(A)):
-    #     if A[i] == prev_val:
-    #         if count < 2:
-    #             count, prev_index = count+1, prev_index+1
-    #             A[prev_index] = A[i]
-    #     else:
-    #         prev_index, prev_val = prev_index+1, A[i]
-    #         A[prev_index] = A[i]
-    #         count = 1
-    #
-    # return A[:prev_index+1]
+    slow = 0
+    count = 1
+    for fast in range(1, len(A)):
+        if (count < 2 and A[fast] == A[slow]) or (A[fast] != A[slow]):
+            count = count + 1 if A[fast] == A[slow] else 1
+            slow += 1
+            A[slow] = A[fast]
 
-    nums = A
-    count = 0
-    for i in range(len(nums)):
-        if count < 2 or nums[count - 2] != nums[i]:
-            nums[count] = nums[i]
-            count += 1
-    return nums[:count]
-
+    return A[:slow+1]
 
 # A = [0,1,1,2,3,3,3]
 A = [1, 1, 1, 2, 2, 3, 3, 3, 3]

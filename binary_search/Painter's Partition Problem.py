@@ -57,7 +57,7 @@ def paint(n, t, paintings):
     def possible(allowed_time):
         time_left_for_painter, painters = allowed_time, 1
         for time in paintings:
-            if time > allowed_time:
+            if time * t > allowed_time:
                 return False
             time_left_for_painter -= time*t
             if time_left_for_painter < 0:
