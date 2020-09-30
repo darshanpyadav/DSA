@@ -151,8 +151,8 @@ class BinarySearchTree:
         return self.root.__iter__()
 
     def delete(self, key):
+        nodeToDelete = self._get(key, self.root)
         if self.size > 1:
-            nodeToDelete = self._get(key, self.root)
             if nodeToDelete:
                 self.remove(nodeToDelete)
                 self.size -= 1

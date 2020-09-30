@@ -1,7 +1,7 @@
 class Node:
-    def __init__(self, value, data=None):
+    def __init__(self, value, next_node=None):
         self.value = value
-        self.next = data
+        self.next = next_node
 
     def __str__(self):
         return "value: " + str(self.value)
