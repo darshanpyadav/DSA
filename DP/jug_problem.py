@@ -17,7 +17,6 @@ def water_jug(amt1, amt2):
     else:
         if not visited[(amt1, amt2)]:
             visited[(amt1, amt2)] = True
-            print(amt1, amt2, sep=" ")
             return water_jug(0, amt2) or water_jug(amt1, 0) or water_jug(jug1, amt2) or water_jug(amt1, jug2) or \
                    water_jug(amt1 + min(amt2, jug1 - amt1), amt2 - min(amt2, jug1 - amt1)) or \
                    water_jug(amt1 - min(amt1, jug2 - amt2), amt2 + min(amt1, jug2 - amt2))

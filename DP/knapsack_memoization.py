@@ -17,8 +17,11 @@ def knapsack(weights, values, limit):
 
     limit is the maximum weight.
     """
+    weights.insert(0, None)  # so that the weight of the ith item is at weight[i]
+    values.insert(0, None)  # so that the value of the ith item is at value[i]
+
     n = len(weights) - 1
-    m = [[-1]*(limit+1) for _ in range(n + 1)]
+    m = [[-1] * (limit + 1) for _ in range(n + 1)]
 
     # m[i][w] will store the maximum value that can be attained with a maximum
     # limit of w and using only the first i items
@@ -42,12 +45,12 @@ def knapsack_helper(weights, values, w, i, m):
         m[i][w] = 0
     else:
         if weights[i] > w:
-            m[i][w] = knapsack_helper(weights, values, w, i-1, m)
+            m[i][w] = knapsack_helper(weights, values, w, i - 1, m)
         else:
             # the best subset of m[i-1] with weight at most w or
             # the best subset of m[i-1] with weight at most w-w[i] plus item v[i]
-            m[i][w] = max(knapsack_helper(weights, values, w, i-1, m),
-                          knapsack_helper(weights, values, w-weights[i], i-1, m) + values[i])
+            m[i][w] = max(knapsack_helper(weights, values, w, i - 1, m),
+                          knapsack_helper(weights, values, w - weights[i], i - 1, m) + values[i])
     return m[i][w]
 
 
@@ -58,12 +61,12 @@ if __name__ == "__main__":
     values = [10, 5, 20, 40, 30]
     weights = [4, 1, 10, 20, 7]
     limit = 10
-    # answer, m = knapsack(weights, values, limit)
-    # print(answer)
-    # print(np.matrix(m))
-    print("**************MEMOIZATION*************")
-    print(timeit.repeat("knapsack([4, 1, 10, 20, 7], [10, 5, 20, 40, 30], 10)",
-                        "from darshan.DP.knapsack_memoization import knapsack", number=10000))
-    print("**************BOTTOM UP*************")
-    print(timeit.repeat("knapsack([4, 1, 10, 20, 7], [10, 5, 20, 40, 30], 10)",
-                        "from darshan.DP.knapsack_bottom_up import knapsack", number=10000))
+    answer, m = knapsack(weights, values, limit)
+    print(answer)
+    print(np.matrix(m))
+    # print("**************MEMOIZATION*************")
+    # print(timeit.repeat("knapsack([4, 1, 10, 20, 7], [10, 5, 20, 40, 30], 10)",
+    #                     "from darshan.DP.knapsack_memoization import knapsack", number=10000))
+    # print("**************BOTTOM UP*************")
+    # print(timeit.repeat("knapsack([4, 1, 10, 20, 7], [10, 5, 20, 40, 30], 10)",
+    #                     "from darshan.DP.knapsack_bottom_up import knapsack", number=10000))

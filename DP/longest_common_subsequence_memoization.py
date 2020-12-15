@@ -51,19 +51,19 @@ def print_lcs(u, v, c):
 
 
 if __name__ == "__main__":
-    # u = input('Enter first string: ')
-    # v = input('Enter second string: ')
-    # c = lcs(u, v)
-    # print('Longest Common Subsequence: ', end='')
-    # print_lcs(u, v, c)
-    # print()
-    # print(np.matrix(c))
-    print("**************MEMOIZATION*************")
-    print(timeit.repeat("lcs('abcbdab','bdcaba')",
-                        "from darshan.DP.longest_common_subsequence_memoization import lcs", number=10000))
-    print("**************BOTTOM UP*************")
-    print(timeit.repeat("lcs('abcbdab','bdcaba')",
-                        "from darshan.DP.longest_common_subsequence_bottom_up import lcs", number=10000))
+    u = input('Enter first string: ')
+    v = input('Enter second string: ')
+    c = lcs(u, v)
+    print('Longest Common Subsequence: ', end='')
+    print_lcs(u, v, c)
+    print()
+    print(np.matrix(c))
+    # print("**************MEMOIZATION*************")
+    # print(timeit.repeat("lcs('abcbdab','bdcaba')",
+    #                     "from DP.longest_common_subsequence_memoization import lcs", number=10000))
+    # print("**************BOTTOM UP*************")
+    # print(timeit.repeat("lcs('abcbdab','bdcaba')",
+    #                     "from DP.longest_common_subsequence_bottom_up import lcs", number=10000))
 
 
 # O(M*N)

@@ -5,6 +5,7 @@
 # Version           : 1.0
 # Description       : Let-s-do-it
 # *****************************************************************************
+from pythonds import BinHeap
 
 
 class MinBinaryHeap:
@@ -32,7 +33,7 @@ class MinBinaryHeap:
         # No of nodes in a complete binary tree 2^l-1 (n is levels).
         # No of levels = log(nodes + 1) base2
         del_item = self.list[1]
-        self.list[1] = self.list.pop()
+        self.list[1] = self.list[self.size]
         self.size -= 1
         self.move_down(1)
         return del_item
@@ -51,9 +52,13 @@ class MinBinaryHeap:
 
     def build_from_list(self, l):
         # O(N/2*logN/2)
-        i = len(l) // 2  # parents will be at l//2. Start from i till 0
-        self.size = len(l)
-        self.list = [0] + l[:]
+        if len(self.list) == 1:
+            self.list = [0] + l[:]
+            self.size = len(l)
+        else:
+            self.list = self.list + l[:]
+            self.size += len(l)
+        i = self.size // 2  # parents will be at l//2. Start from i till 0
         while i > 0:
             self.move_down(i)
             i -= 1
@@ -63,14 +68,20 @@ class MinBinaryHeap:
 
 
 b = MinBinaryHeap()
-b.build_from_list([9, 5, 6, 2, 3])
-b.insert(8)
-b.insert(7)
+# b.build_from_list([9, 5, 6, 2, 3])
+# b.insert(8)
+# b.insert(7)
+# print(b.delete_min())
+# print(b.delete_min())
+# print(b.delete_min())
+# print(b.delete_min())
+# print(b.delete_min())
+# print(b.delete_min())
+# print(b.delete_min())
 
-print(b.delete_min())
-print(b.delete_min())
-print(b.delete_min())
-print(b.delete_min())
-print(b.delete_min())
-print(b.delete_min())
-print(b.delete_min())
+b.build_from_list([[1, 10, 20], [4, 11, 13], [3, 8, 9]])
+# b.build_from_list([4, 11, 13])
+# b.build_from_list([3, 8, 9])
+
+for i in range(9):
+    print(b.delete_min())
