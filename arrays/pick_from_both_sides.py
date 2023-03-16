@@ -54,15 +54,18 @@ Output 2:
 '''
 
 
-def solve(A, B):
-    front_sum = sum(A[:B])
-    max_sum = front_sum
+def solve(arr, k):
+    # window type: static
+    # window size: k
 
-    for i in range(B):
-        # compute sum by removing last element of front_sum and add elements from the end
-        front_sum = front_sum - A[B-1-i] + A[-1-i]
-        max_sum = max(front_sum, max_sum)
+    # we are initializing the max_sum to be the sum of last k elements of the list
+    max_sum = cur_sum = sum(arr[-k:])
 
+    for index in range(k):
+        # slide window to the front of the list
+        # arr[-k] -> points to the k element from the back of the list
+        cur_sum += - arr[-k + index] + arr[index]
+        max_sum = max(max_sum, cur_sum)
     return max_sum
 
 
