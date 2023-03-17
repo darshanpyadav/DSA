@@ -31,7 +31,7 @@ class Solution:
         if len(set(s)) < k:
             return -1
 
-        # track letters that
+        # track letters
         char_tracker = {}
         longest_substring = -math.inf
         left = 0
@@ -63,15 +63,16 @@ class Solution:
 
 
 a = Solution()
-# print(a.length_of_longest_substring_k_distinct("abcbdbdbbdcdabd", 2))
-# print(a.length_of_longest_substring_k_distinct("abcbdbdbbdcdabd", 3))
-# print(a.length_of_longest_substring_k_distinct("abcbdbdbbdcdabd", 4))
-# print(a.length_of_longest_substring_k_distinct("eceba", 2))
-# print(a.length_of_longest_substring_k_distinct("eceba", 3))
-# print(a.length_of_longest_substring_k_distinct("eceba", 4))
-# print(a.length_of_longest_substring_k_distinct("WORLD", 2))
-# print(a.length_of_longest_substring_k_distinct("WORLD", 3))
-# print(a.length_of_longest_substring_k_distinct("WORLD", 4))
+print(a.length_of_longest_substring_k_distinct("abcbdbdbbdcdabd", 1))
+print(a.length_of_longest_substring_k_distinct("abcbdbdbbdcdabd", 2))
+print(a.length_of_longest_substring_k_distinct("abcbdbdbbdcdabd", 3))
+print(a.length_of_longest_substring_k_distinct("abcbdbdbbdcdabd", 4))
+print(a.length_of_longest_substring_k_distinct("eceba", 2))
+print(a.length_of_longest_substring_k_distinct("eceba", 3))
+print(a.length_of_longest_substring_k_distinct("eceba", 4))
+print(a.length_of_longest_substring_k_distinct("WORLD", 2))
+print(a.length_of_longest_substring_k_distinct("WORLD", 3))
+print(a.length_of_longest_substring_k_distinct("WORLD", 4))
 print(a.length_of_longest_substring_k_distinct("gbwkfnqduxwfn", 15))
 
 
