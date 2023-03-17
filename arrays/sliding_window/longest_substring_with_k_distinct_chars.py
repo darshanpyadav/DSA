@@ -117,7 +117,7 @@ class Solution1:
         return longest_substring
 
 
-        # Initial solution
+        # Initial solution that timed out
         #
         # char_tracker = {}
         # longest_substring = ""
