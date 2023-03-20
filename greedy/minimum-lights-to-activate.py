@@ -65,24 +65,22 @@ def solve(A, B):
     i = 0
     n = len(A)
     while i < n:
-        cur = i + (B-1)  # start with rightmost index
-        if cur >= n:
-            cur = n-1
+        cur = min(i + (B - 1), n - 1)  # start with rightmost index
 
-        # Check if you find a 1 within the range[i-(B-1), i+(B-1)], we'll find the rightmost A[i] == 1
-        while cur >= 0 and A[cur] != 1 and cur >= (i - (B-1)):
+        # Check if you find a 1 (light) within the range[i-(B-1), i+(B-1)], we'll find the rightmost A[i] == 1
+        while cur >= max(0, (i - (B - 1))):
+            if A[cur] == 1:
+                count += 1
+                break
             cur -= 1
-
-        if cur >= 0 and A[cur] == 1 and cur >= (i - (B-1)):
-            count += 1
-            i = cur + B  # the current light's range end's at cur + (B-1) so move to next element
         else:
             return -1
+        i = cur + B  # the current light's range end's at cur + (B-1) so move to next element
     return count
 
 
-A = [0,0,1,0,0,1,1,1,0,0,0,0,0]
+A = [0, 0, 1, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0]
 B = 6
-A = [0,0,1,1,1,0,0]
+A = [0, 0, 1, 1, 1, 0, 0]
 B = 3
 print(solve(A, B))

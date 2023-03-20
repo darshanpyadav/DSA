@@ -16,3 +16,4 @@ def merge(intervals):
 
 print(merge([[1,3],[2,6],[8,10],[15,18]]))
 print(merge([[6, 8], [1, 9], [2, 4], [4, 7]]))
+print(merge([[6, 8], [1, 9], [2, 4], [4, 7]]))
