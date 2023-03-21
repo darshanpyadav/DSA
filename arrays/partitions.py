@@ -36,6 +36,26 @@ Input 2:
 
  A = 4
  B = [0, 1, -1, 0]
+
+Example Output
+Output 1:
+
+ 2
+Output 2:
+
+ 1
+
+
+Example Explanation
+Explanation 1:
+
+ There are no 2 ways to make partitions -
+ 1. (1,2)+(3)+(0,3).
+ 2. (1,2)+(3,0)+(3).
+Explanation 2:
+
+ There is only 1 way to make partition -
+ 1. (0)+(-1,1)+(0).
  '''
 
 
@@ -47,26 +67,30 @@ def solve(n, arr):
     if (arr_sum % 3) != 0:
         return 0
 
-    equal_sum = arr_sum // 3
-    count = cur_sum = i = 0
+    partition_sum = arr_sum // 3
+    count = cur_sum = first_partition_count = 0
 
-    for k in range(n):
-        # First point is always fixed
-        cur_sum += arr[k]
+    for i in range(n-1):
+        cur_sum += arr[i]
 
-        if cur_sum == equal_sum:
-            i += 1
+        # First increment count if 2 * partition_sum occurs
+        # count is incremented by first_partition_count times because,
+        # for every increase of first_partition_count, count increases by first_partition_count times
+        if cur_sum == (2 * partition_sum):
+            count += first_partition_count
 
-        if cur_sum == (2 * equal_sum):
-            count += i
-
-    if equal_sum == 0:
-        count = (i-1)*(i-2)//2
+        if cur_sum == partition_sum:
+            first_partition_count += 1
 
     return count
 
 
 # print(solve(5, [1, 2, 3, 0, 3]))
 # print(solve(4, [0, 1, -1, 0]))
-# print(10, [ 2, 5, -2, 2, -3, -2, 3, 5, -5, -2 ])
-print(solve(5,[ 3, 3, -3, 3, 3 ]))
+# print(solve(10, [2, 5, -2, 2, -3, -2, 3, 5, -5, -2]))
+# print(solve(5,[ 3, 3, -3, 3, 3 ]))
+print(solve(9, [6, 4, 8, 2, -10, 3, 7, 9, 1]))
+# (6,4), (8,2,-10,3,7), (9,1)
+# (6,4,8,2,-10), (3,7), (9,1)
+# (6,4), (8,2), (-10,3,7,9,1)
+print(solve(11, [6, 4, 8, 2, -10, 2, -2, 3, 7, 9, 1]))

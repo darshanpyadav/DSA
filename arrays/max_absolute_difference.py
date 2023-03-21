@@ -55,19 +55,31 @@ def max_difference(A):
 # ************************************************************************************************
 '''
     f(i, j) = |A[i] - A[j]| + |i - j|
+    can be written in 4 ways
     (A[i] + i) - (A[j] + j)
     or
     (A[i] - i) - (A[j] - j) 
+    or
+    -(A[i] - i) + (A[j] - j )
+    or 
+    -(A[i] + i) + (A[j] + j)
+    
+    (A[i] + i) - (A[j] + j) == -(A[i] + i) + (A[j] + j)
+    (A[i] - i) - (A[j] - j) == -(A[i] - i) + (A[j] - j )
 '''
 
 
 # O(N)
 def max_difference(A):
+    # create two arrays
+    # for one you add index to the ele
+    # for another you subtract index from ele
     a = []
     b = []
     for i, val in enumerate(A):
         a.append(val+i)
         b.append(val-i)
+    # to maximise the sum, you'll find difference of max and min elements of each
     max1, min1 = (max(a), min(a))
     max2, min2 = (max(b), min(b))
 
@@ -76,4 +88,4 @@ def max_difference(A):
 
 # print(max_difference([2, 2, 2]))
 # print(max_difference([1, 3, -1, 3]))
-print(max_difference([ 55, -8, 43, 52, 8, 59, -91, -79, -18, -94 ]))
+print(max_difference([55, -8, 43, 52, 8, 59, -91, -79, -18, -94]))
